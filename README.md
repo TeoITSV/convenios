@@ -1,5 +1,5 @@
 
-# 📜 Instructivo Detallado para Utilizar el Generador de Convenios 🖋️✨
+# 📜 Generador de Convenios ITSV🖋️✨
 
   
 
@@ -78,8 +78,9 @@ Para facilitarles el proceso, hemos adjuntado en la carpeta 🧱Static las plant
 
 - Instalacion de virtualENV
 	- [Python documentation venv](https://docs.python.org/3/library/venv.html)
-	- [Cambiar python a 3.7 ](https://tellor.io/blog/how-to-install-python-3-9-and-venv-on-ubuntu/)
-		Pueden usar esta opcion si no pueden instalar pyenv/no funciona
 	- [Pyenv ](https://github.com/pyenv/pyenv)
 		Gestor de versiones de python, util para instalar python 3.7🐍
+	- [Cambiar python a 3.7 ](https://tellor.io/blog/how-to-install-python-3-9-and-venv-on-ubuntu/)
+		Pueden usar esta opcion si no pueden instalar pyenv/no funciona
+	
 
