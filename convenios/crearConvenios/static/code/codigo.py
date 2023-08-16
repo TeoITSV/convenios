@@ -5,9 +5,12 @@ from django.conf import settings
 from django.utils import six
 import json
 import sys
+from importlib import reload
 reload(sys)
 import os
-sys.setdefaultencoding('utf-8')
+if sys.version[0] == '2':
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
 
 def __init__():
     pass
@@ -41,20 +44,20 @@ def correrAplicacion(documento):
 
 def crearConveniosIndividuales(diplomas):
     sheetAlumnos = book.sheet_by_index(0)
-    keys = [sheetAlumnos.cell(0, col_index).value for col_index in xrange(sheetAlumnos.ncols)]
-    for row_index in xrange(1, sheetAlumnos.nrows):
+    keys = [sheetAlumnos.cell(0, col_index).value for col_index in range(sheetAlumnos.ncols)]
+    for row_index in range(1, sheetAlumnos.nrows):
         dataAlumnos = {keys[col_index]: sheetAlumnos.cell(row_index, col_index).value
-             for col_index in xrange(sheetAlumnos.ncols)}
+             for col_index in range(sheetAlumnos.ncols)}
         row_indexAlumnos = row_index
         json_strAlumnos = json.dumps(dataAlumnos)
         resp = json.loads(json_strAlumnos)
         sheetEmpresas = book.sheet_by_index(1)
-        keysEmpresas = [sheetEmpresas.cell(0, col_index).value for col_index in xrange(sheetEmpresas.ncols)]
-        for row_index in xrange(1, sheetEmpresas.nrows):
+        keysEmpresas = [sheetEmpresas.cell(0, col_index).value for col_index in range(sheetEmpresas.ncols)]
+        for row_index in range(1, sheetEmpresas.nrows):
             nombreEmpresa = str(sheetEmpresas.cell(row_index,0).value)
             if (nombreEmpresa == resp['empresaElegida']):
                 dataEmpresas = {keysEmpresas[col_index]: sheetEmpresas.cell(row_index, col_index).value
-                    for col_index in xrange(sheetEmpresas.ncols)}
+                    for col_index in range(sheetEmpresas.ncols)}
                 dataAlumnos.update(dataEmpresas)
         if (diplomas == 'diplomas'):
             imprimirDiplomas(dataAlumnos)
@@ -67,10 +70,10 @@ def crearConveniosIndividuales(diplomas):
 
 def crearConveniosMarco():
     sheetEmpresas = book.sheet_by_index(1)
-    keysEmpresas = [sheetEmpresas.cell(0, col_index).value for col_index in xrange(sheetEmpresas.ncols)]
-    for row_index in xrange(1, sheetEmpresas.nrows):
+    keysEmpresas = [sheetEmpresas.cell(0, col_index).value for col_index in range(sheetEmpresas.ncols)]
+    for row_index in range(1, sheetEmpresas.nrows):
         dataEmpresas = {keysEmpresas[col_index]: sheetEmpresas.cell(row_index, col_index).value
-             for col_index in xrange(sheetEmpresas.ncols)}
+             for col_index in range(sheetEmpresas.ncols)}
         json_strEmpresa = json.dumps(dataEmpresas)
         respEmpresa = json.loads(json_strEmpresa)
         imprimirConveniosMarco(dataEmpresas)
@@ -93,7 +96,7 @@ def imprimirConvenios(datosJason):
         docIndi.render(context)
         docIndi.save(carpetaConveniosIndividuales +"Convenio Individual - "+ nombreEmpresa +" - "+ nombreAlumno +".docx")
     except:
-        print "Error al convertir a int - convenio individual de: " + resp['nombreAlumno']
+        print("Error al convertir a int - convenio individual de: " + resp['nombreAlumno']) 
 
 def imprimirConveniosMarco(datosJason):
     json_str = json.dumps(datosJason)
@@ -106,7 +109,7 @@ def imprimirConveniosMarco(datosJason):
         docIndi.render(context)
         docIndi.save(carpetaConveniosMarco + "Convenio Marco - "+ nombreEmpresa +" .docx")
     except:
-        print "Error al convertir a int - convenio marco de: " + resp['nombreEmpresa']
+        print ("Error al convertir a int - convenio marco de: " + resp['nombreEmpresa'])
 
 
 def imprimirDiplomas(datosJason):

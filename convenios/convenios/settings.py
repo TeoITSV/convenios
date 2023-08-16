@@ -12,8 +12,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import sys
+from importlib import reload
+if sys.version[0] == '2':
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
 reload(sys)  # Reload does the trick!
-sys.setdefaultencoding('UTF8')
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

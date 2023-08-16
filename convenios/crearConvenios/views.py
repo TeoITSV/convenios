@@ -18,7 +18,9 @@ def index(request):
     except Exception as e:
         raise Http404("No se encuentra index: " + e)
 
-def generar(request):  #si no paso todos los documentos da error!
+def generar(request):
+      #si no paso todos los documentos da error!
+    generarConvenios = ""
     try:
         if request.method == 'POST':
             limpiarDirectorios()

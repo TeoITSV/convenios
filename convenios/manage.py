@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-
+from importlib import reload
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "convenios.settings")
     try:
