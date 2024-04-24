@@ -1,7 +1,0 @@
-No se porque (statics de django yo no desarrolle el proyecto)
-pero el proyecto no funciona si no tiene los siguientes directorios para ahorrarte el tiempo que perdi subo este archivo vacio al repo para que se suba al repo y no tengas que crearlos tu mismo
-.
-└── resultado
-    ├── ConveniosIndividuales
-    ├── ConveniosMarco
-    └── Diplomas
