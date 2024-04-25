@@ -22,6 +22,16 @@ Para comenzar, clonen este repositorio en sus entornos locales con el siguiente 
 ```bash
 git clone urlDelRepo
 ```
+### Opción 1: Instalación con 🐳Docker
+Si prefieres utilizar Docker para simplificar el proceso de configuración, sigue estos pasos:
+
+```bash
+docker-compose up --build
+```
+
+### Opción 2: Instalación Manual
+Si prefieres instalar el proyecto manualmente, sigue estos pasos:
+
 
 1.  **💼Configuración del Entorno:**
 
