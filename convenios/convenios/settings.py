@@ -127,3 +127,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = BASE_DIR + '/crearConvenios/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")

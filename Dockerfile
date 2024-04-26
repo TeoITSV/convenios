@@ -22,6 +22,8 @@ EXPOSE 8000
 # Genera las migraciones y migra la base de datos
 RUN python convenios/manage.py makemigrations
 RUN python convenios/manage.py migrate
-
+RUN python convenios/manage.py collectstatic --noinput
+RUN mkdir -p convenios/crearConvenios/media && \
+    test -d convenios/crearConvenios/media || mkdir -p convenios/crearConvenios/media
 # Comando para iniciar el servidor Django
 CMD ["python", "convenios/manage.py", "runserver", "0.0.0.0:8000"]
