@@ -19,9 +19,9 @@ hojaDeDatos = settings.MEDIA_ROOT + 'hojaDatos.xlsx'
 nombrePlantillaConvenioIndividual =  settings.MEDIA_ROOT + 'plantillaIndividuales.docx'
 nombrePlantillaConvenioMarco = settings.MEDIA_ROOT + 'plantillaMarco.docx'
 nombrePlantillaDiplomas = settings.MEDIA_ROOT + 'plantillaDiplomas.docx'
-carpetaConveniosIndividuales = settings.MEDIA_ROOT + '/resultado/ConveniosIndividuales/'
-carpetaConveniosMarco = settings.MEDIA_ROOT + '/resultado/ConveniosMarco/'
-carpetaDiplomas = settings.MEDIA_ROOT + '/resultado/Diplomas/'
+carpetaConveniosIndividuales = settings.MEDIA_ROOT + 'resultado/ConveniosIndividuales/'
+carpetaConveniosMarco = settings.MEDIA_ROOT + 'resultado/ConveniosMarco/'
+carpetaDiplomas = settings.MEDIA_ROOT + 'resultado/Diplomas/'
 book = ''
 
 def correrAplicacion(documento):
@@ -129,7 +129,7 @@ def imprimirDiplomas(datosJason):
     docIndi.save(carpetaDiplomas+"Diploma - "+ nombreEmpresa +" - "+ nombreAlumno +" .docx")
 
 def limpiarDirectorios():
-    directorios = ['','/resultado/ConveniosIndividuales/','/resultado/ConveniosMarco/','/resultado/Diplomas/']
+    directorios = ['','resultado/ConveniosIndividuales/','resultado/ConveniosMarco/','resultado/Diplomas/']
     for direc in directorios:
         folder = os.path.join(settings.MEDIA_ROOT + direc)
         for the_file in os.listdir(folder):
